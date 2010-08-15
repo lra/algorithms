@@ -22,23 +22,21 @@ function sortByDirectSelection($array)
 
 	for ($i = 0; $i < count($array) - 1; $i++)
 	{
-		$min = $array[$i];
-		$pos_min = $i;
+		$min = $i;
 
 		for ($j = $i + 1; $j < count($array); $j++)
 		{
-			if ($array[$j] < $min)
+			if ($array[$j] < $array[$min])
 			{
-				$min = $array[$j];
-				$pos_min = $j;
+				$min = $j;
 			}
 		}
 		
-		if ($array[$i] !== $min)
+		if ($array[$i] !== $array[$min])
 		{
 			$temp = $array[$i];
-			$array[$i] = $array[$pos_min];
-			$array[$pos_min] = $temp;
+			$array[$i] = $array[$min];
+			$array[$min] = $temp;
 		}
 	}
 
